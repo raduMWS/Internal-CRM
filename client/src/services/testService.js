@@ -9,7 +9,7 @@ const apiEndpoint = apiUrl + "/test";
  * @returns {object[]} the test data
  */
 async function getTest() {
-  const { data } = await http.get(`${apiEndpoint}`);
+  const { data } = await http.get(`${apiEndpoint}/api/users`);
   return data;
 }
 

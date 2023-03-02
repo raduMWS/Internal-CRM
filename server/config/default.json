@@ -1,1 +1,3 @@
-{}
+{
+  "mongoURI": "mongodb+srv://radugrama:1234@cluster0.ytxyvix.mongodb.net/?retryWrites=true&w=majority"
+}

@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import testRoute from "../routes/testRoute.js";
+import users from "../routes/user.js";
 import error from "../middleware/error.js";
 
 export default function routes(app) {
@@ -13,6 +14,7 @@ export default function routes(app) {
 
   // Here will come all the routes
   app.use("/test", testRoute);
+  app.use("/api/users", users);
 
   app.use(error);
 }
