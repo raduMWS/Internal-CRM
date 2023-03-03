@@ -1,7 +1,8 @@
 import React from 'react'
-import { ModalBackground, ModalContainer, Title } from './styles'
+import { InfoLabel, ModalBackground, ModalContainer, ModalInfoRow, Title } from './styles'
 import { useState, setState, setValue } from 'react';
 import usersService from '../../services/usersService';
+import { GreenButton, RedButton } from '../UsersTable/styles';
 
 
 function EditModal({ closeModal, user, handleUpdateData }) {
@@ -31,16 +32,28 @@ function EditModal({ closeModal, user, handleUpdateData }) {
         <ModalBackground>
             <ModalContainer>
                 <Title>
-                    <h1 text-color='black'>title</h1>
+                    <h1 >User</h1>
                 </Title>
-                <input type="text" name="name" value={user.name} onChange={handleInputChange}></input>
-                <input type="text" name="email" value={user.email} onChange={handleInputChange}></input>
-                <input type="text" name="age" value={user.age} onChange={handleInputChange}></input>
-                <input type="text" name="gender" value={user.gender} onChange={handleInputChange}></input>
+                <ModalInfoRow>
+                    <InfoLabel>Name</InfoLabel>
+                    <input type="text" name="name" value={user.name} onChange={handleInputChange}></input>
+                </ModalInfoRow>
+                <ModalInfoRow>
+                    <InfoLabel>Email</InfoLabel>
+                    <input type="text" name="email" value={user.email} onChange={handleInputChange}></input>
+                </ModalInfoRow>
+                <ModalInfoRow>
+                    <InfoLabel>Age</InfoLabel>
+                    <input type="text" name="age" value={user.age} onChange={handleInputChange}></input>
+                </ModalInfoRow>
+                <ModalInfoRow>
+                    <InfoLabel>Gender</InfoLabel>
+                    <input type="text" name="gender" value={user.gender} onChange={handleInputChange}></input>
+                </ModalInfoRow>
 
                 <div className='footer'>
-                    <button onClick={() => closeModal(false)}>Cancel</button>
-                    <button onClick={() => { handleSave() }}>Save</button>
+                    <RedButton onClick={() => closeModal(false)}>Cancel</RedButton>
+                    <GreenButton onClick={() => { handleSave() }}>Save</GreenButton>
                 </div>
             </ModalContainer>
         </ModalBackground >

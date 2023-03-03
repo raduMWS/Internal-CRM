@@ -14,18 +14,32 @@ async function getUsers() {
 }
 
 async function updateUser(user) {
-  let id = user._id;
-  console.log(id);
-  delete user._id;
+  let shouldInsert = false;
+  let id = 0;
+  if (user._id) {
+    id = user._id;
+    console.log(id);
+    delete user._id;
+  } else shouldInsert = true;
+  if (!shouldInsert) {
+    const { data } = await http.put(`${apiEndpoint}/users/` + id, user);
+    console.log(JSON.stringify(data));
+    return data;
+  } else {
+    const { data } = await http.post(`${apiEndpoint}/users/`, user);
+    return data;
+  }
+}
 
-  const { data } = await http.put(`${apiEndpoint}/users/` + id, user);
-  console.log(JSON.stringify(data));
+async function deleteUser(user) {
+  const { data } = await http.delete(`${apiEndpoint}/users/` + user._id);
   return data;
 }
 
 const usersService = {
   getUsers,
   updateUser,
+  deleteUser,
 };
 
 export default usersService;

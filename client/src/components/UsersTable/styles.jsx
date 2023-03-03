@@ -1,12 +1,19 @@
 import styled from 'styled-components';
 
 export const MainContainer = styled.div`
-    width:100%;
-    height:100%;
+    width:92vw;
+    height:91vh;
+    /* width:100%;
+    height:98%; */
+    padding:10px;
+    left:5px;
     background-color:#98a1bb;
     display:flex;
     justify-content:center;
     align-items:center;
+    flex-direction:row;
+    position:relative;
+    top:0px;
 `
 
 export const ListItem = styled.div`
@@ -16,6 +23,7 @@ export const ListItem = styled.div`
    border-radius:2px;
    text-align:center;
 `;
+
 
 export const DetailItem = styled.div`
     padding:10px;
@@ -30,7 +38,15 @@ export const DetailItem = styled.div`
     align-items:center;
 `;
 
-export const EditButton = styled.button`
+export const ListContainer = styled.ul`
+position:absolute;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+`
+
+export const GreenButton = styled.button`
 border:2px solid #4caf50;
 background-color: #4caf50;
 color: white;
@@ -43,7 +59,7 @@ cursor:pointer;
 transition:0.5s all ease-out;
 `;
 
-export const DeleteButton = styled.button`
+export const RedButton = styled.button`
 border:2px solid #af4c4f;
 background-color: #af4c4f;
 color: white;
@@ -60,4 +76,11 @@ export const ButtonWrapper = styled.span`
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 5px;
+`
+
+export const Footer = styled.div`
+   padding:10px;
+   margin-bottom:10px;
+   position:absolute;
+   bottom:0px;
 `
